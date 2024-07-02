@@ -20,7 +20,7 @@ products.forEach((product)=>{
             </div>
 
             <div class="product-price">
-            $${(product.priceInCents / 100).toFixed(2)}
+            $${(product.priceCents / 100).toFixed(2)}
             </div>
 
             <div class="product-quantity-container">
@@ -75,7 +75,14 @@ document.querySelectorAll(".js-add-to-cart")
           quantity : 1
         });
       }
+      let cartQuantity = 0; 
+      cart.forEach(currentItem => {
+        cartQuantity += currentItem.quantity;
+      });
+        
+      document.querySelector('.js-cart-quantity').innerHTML=cartQuantity;
 
       console.log(cart);
     });
 });
+
